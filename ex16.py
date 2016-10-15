@@ -7,10 +7,11 @@
 import random
 
 def password(quant):
-    options = ['numbers', 'letters', 'symbols']
+    options = ['numbers', 'letters', 'symbols','letters_upper']
     numbers = list(str(range(10)))
     letters = list('abcdefghijklmnopqrstuvwxyz')
-    symbols = list('[]!@#$%&*<>')
+    letters_upper = list('abcdefghijklmnopqrstuvwxyz'.upper())
+    symbols = list("[]\{\}!@#$%&*<>")
     password = []
     i = random.randint(10,20)
 
@@ -24,21 +25,26 @@ def password(quant):
             sorted_letters = random.sample(letters, random.randrange(26))
             sorted_letters = ''.join(sorted_letters)
             password.append(sorted_letters)
+        elif j == 'letters_upper':
+            sorted_letters = random.sample(letters_upper, random.randrange(26))
+            sorted_letters = ''.join(sorted_letters)
+            password.append(sorted_letters)
         elif j == 'symbols':
             sorted_symbols = random.sample(symbols, random.randrange(11))
             sorted_symbols = ''.join(sorted_symbols)
             password.append(sorted_symbols)
         i -= 1
-    random.shuffle(password)
-    string_password = ''.join(password)
+
+    list_password = list(''.join(password))
+    random.shuffle(list_password)
+    string_password = ''.join(list_password)
+
 
     if quant <= len(string_password):
-        print(string_password[:quant])
-    else:
+        print(''.join(random.sample(string_password,quant)))
+    elif quant == 0:
         print(string_password)
 
-def secret_password():
-    sample = list('abcdefghijklmnopqrstuvwxyz[]!@#$%&*<>')
 
 
 if __name__ == '__main__':
