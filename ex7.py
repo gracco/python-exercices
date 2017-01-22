@@ -1,7 +1,6 @@
-a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
-new_list = []
+# Let’s say I give you a list saved in a variable: a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]. Write one line of Python
+# that takes this list a and makes a new list that has only the even elements of this list in it.
 
-for i in a:
-    if i % 2 == 0:
-        new_list.append(i)
-print(new_list)
+a = [1, 4, 9, 16, 25, 36, 49, 64, 81, 100]
+
+print([new_line for new_line in a if new_line % 2 == 0])
